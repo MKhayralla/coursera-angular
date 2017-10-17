@@ -19,7 +19,8 @@
     });
     search.matchMenuItems = function () {
       search.empty = false ;
-      search.found = MenuSearchService.findMenuItems(search.items,search.searchItem);
+      var term = search.searchItem ;
+      search.found = MenuSearchService.findMenuItems(search.items,term);
       if(search.found.length===0){
         search.empty = true ;
       }
