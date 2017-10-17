@@ -6,6 +6,7 @@
   NarrowItDownController.$inject=['MenuSearchService'];
   function NarrowItDownController(MenuSearchService) {
     var search = this ;
+    search.empty = false ;
     var promise = MenuSearchService.getMenuItems();
     promise.then(function (response) {
       console.log('Secceded to load json !')
@@ -16,7 +17,11 @@
       console.log('Failed to load json !')
     });
     search.matchMenuItems = function () {
-      search.found = MenuSearchService.findMenuItems(search.items,search.searchItem)
+      search.empty = false ;
+      search.found = MenuSearchService.findMenuItems(search.items,search.searchItem);
+      if(search.found.length===0){
+        search.empty = true ;
+      }
         }
         search.delete = function(index){
           search.found.splice(index,1) ;
@@ -35,12 +40,12 @@
     service.findMenuItems = function (items,term) {
       var found = [];
       var myItems = items.menu_items ;
-      var name = '' ;
+      var description = '' ;
       console.log(term);
       for (var i = 0; i < myItems.length; i++) {
         console.log(myItems[i].name);
-        name = myItems[i].name ;
-        if (name.toLowerCase().indexOf(term.toLowerCase())!==-1) {
+        description = myItems[i].description ;
+        if (description.toLowerCase().indexOf(term.toLowerCase())!==-1) {
           found.push(myItems[i]);
       }
         }

@@ -50,3 +50,7 @@ input[type="text"] {
     transform: rotate(360deg);
   }
 }
+.message {
+  color :red ;
+  font-size: 24px ;
+}
