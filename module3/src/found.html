@@ -1,0 +1,8 @@
+<!--custom directive template-->
+<ul>
+  <li  class="row" ng-repeat="item in items.found">
+      <span class="col-xs-12 col-sm-6">{{item.name}}</span>
+      <span class="col-xs-12 col-sm-6"><button class="btn btn-danger btn-md"
+              ng-click="onRemove({index : $index})">I don't want this</button></span>
+      <br><br><br></li>
+</ul>
