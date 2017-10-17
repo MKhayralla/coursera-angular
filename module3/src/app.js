@@ -7,6 +7,7 @@
   function NarrowItDownController(MenuSearchService) {
     var search = this ;
     search.empty = false ;
+    search.searchItem = '' ;
     var promise = MenuSearchService.getMenuItems();
     promise.then(function (response) {
       console.log('Secceded to load json !')
