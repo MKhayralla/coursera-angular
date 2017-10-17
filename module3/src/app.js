@@ -39,6 +39,9 @@
     }
     service.findMenuItems = function (items,term) {
       var found = [];
+      if (term==='') {
+        return found ;
+      }
       var myItems = items.menu_items ;
       var description = '' ;
       console.log(term);
