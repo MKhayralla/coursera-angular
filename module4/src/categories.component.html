@@ -1,0 +1,11 @@
+<ul class="row row-content">
+  <li ng-repeat="item in $ctrl.categories"
+      class="col-xs-6 col-sm-4"><button type="button"
+                                        class="btn
+                                               btn-warning
+                                               form-control"
+                                        ui-sref="items({short:item.short_name})">
+                                        {{item.name}}
+                                </button>
+  </li>
+</ul>

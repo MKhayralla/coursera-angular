@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="/styles/bootstrap.min.css">
+    <script src="lib/angular.min.js" charset="utf-8"></script>
+    <script src="lib/angular-ui-router.min.js" charset="utf-8"></script>
+    <title>Coursera Restaurant</title>
+  </head>
+  <style media="screen">
+    .jumbotron{
+      background: #DEB887 ;
+      min-height: 150px ;
+    }
+    body{
+      background: #FFEBCD ;
+    }
+    .row-content{
+      background: 	#E6E6FA ;
+      min-height: 150px ;
+      border-color: 	#808080 ;
+      border-bottom: 1px solid ;
+    }
+    .form-control{
+      min-height: 50px ;
+    }
+  </style>
+  <body ng-app="MenuApp">
+    <div class="jumbotron">
+      <h1>Welcome To Our Restaurant</h1>
+    </div>
+    <ui-view></ui-view>
+
+  </body>
+  <script src="src/menuapp.module.js" charset="utf-8"></script>
+  <script src="src/data.module.js" charset="utf-8"></script>
+  <script src="src/menudata.service.js" charset="utf-8"></script>
+  <script src="src/categories.component.js" charset="utf-8"></script>
+  <script src="src/items.component.js" charset="utf-8"></script>
+  <script src="src/routes.js" charset="utf-8"></script>
+  <script src="src/lastState.controller.js" charset="utf-8"></script>
+</html>
