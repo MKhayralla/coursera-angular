@@ -1,0 +1,72 @@
+<div class="container">
+  <form role="form" class="form form-vertical" name="signupForm" novalidate>
+    <div class="form-group">
+        <label for="first" class="col-xs-3 col-sm-offset-2">First Name :</label>
+        <input type="text" ng-model="ctrl.user.fN" placeholder="first name"
+               name="first" id="first" required minlength='4'>
+        <span ng-if="(signupForm.first.$error.required)
+                    && (signupForm.first.$touched)"
+             class="span-warning">
+          * required !
+        </span>
+        <span ng-if="signupForm.first.$error.minlength && signupForm.first.$touched">
+          first name must be at least 4 characters
+        </span>
+    </div>
+    <div class="form-group">
+        <label for="last" class="col-xs-3 col-sm-offset-2">Last Name :</label>
+        <input type="text" ng-model="ctrl.user.lN" placeholder="last name"
+               name="last" id="last"
+               minlength="4" required>
+               <span ng-if="(signupForm.last.$error.required)
+                           && (signupForm.last.$touched)"
+                    class="span-warning">
+                 * required !
+               </span>
+               <span ng-if="signupForm.last.$error.minlength && signupForm.last.$touched">
+                 last name must be at least 4 characters
+               </span>
+    </div>
+    <div class="form-group">
+      <label for="mail" class="col-xs-3 col-sm-offset-2">Email :</label>
+      <input type="email" ng-model="ctrl.user.eA"
+             id="mail" name="mail"
+             placeholder="email address" required>
+      <span class="span-warning"
+            ng-if="signupForm.mail.$invalid && signupForm.mail.$touched">
+            must be a valid email address</span>
+    </div>
+    <div class="form-group">
+      <label for="phone" class="col-xs-3 col-sm-offset-2">phone :</label>
+      <input type="text" id="phone" name="phone" ng-model="ctrl.user.pN"
+             placeholder="###-###-####" pattern="(\d{3})-(\d{3})-(\d{4})"
+             required>
+             <span class="span-warning"
+                   ng-if="signupForm.phone.$invalid && signupForm.phone.$touched">
+                   must be a valid phone number (###-###-####)</span>
+    </div>
+    <div class="form-group">
+      <label for="short" class="col-xs-3 col-sm-offset-2">Prefered menu item :</label>
+      <input type="text" id="short" ng-model="ctrl.user.short"
+             required placeholder="favorite menu item">
+      <div ng-if="ctrl.wrong"
+           style="color : red ;
+           phont-size : 24px ;"
+           class="col-xs-12 col-sm-offset-2">
+        no such menu item in our Menu !
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="submit" ng-disabled="signupForm.$invalid"
+             ng-click="ctrl.saveData()"
+             value="sign up" class="btn btn-primary btn-lg
+                                    col-xs-4 col-sm-2 col-sm-offset-2">
+    </div>
+  </form>
+  <br><br><br>
+  <div class="row" ng-if="ctrl.saved" style="color : green ;
+                                             font-size : 24px ;
+                                             text-align : center ;">
+    data saved !
+  </div>
+</div>
