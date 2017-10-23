@@ -9,7 +9,8 @@
              class="span-warning">
           * required !
         </span>
-        <span ng-if="signupForm.first.$error.minlength && signupForm.first.$touched">
+        <span ng-if="signupForm.first.$error.minlength && signupForm.first.$touched"
+              class="span-warning">
           first name must be at least 4 characters
         </span>
     </div>
@@ -23,7 +24,8 @@
                     class="span-warning">
                  * required !
                </span>
-               <span ng-if="signupForm.last.$error.minlength && signupForm.last.$touched">
+               <span ng-if="signupForm.last.$error.minlength && signupForm.last.$touched"
+                     class="span-warning">
                  last name must be at least 4 characters
                </span>
     </div>
@@ -47,8 +49,13 @@
     </div>
     <div class="form-group">
       <label for="short" class="col-xs-3 col-sm-offset-2">Prefered menu item :</label>
-      <input type="text" id="short" ng-model="ctrl.user.short"
+      <input type="text" id="short" name="short" ng-model="ctrl.user.short"
              required placeholder="favorite menu item">
+      <span ng-if="(signupForm.short.$error.required)
+                   && (signupForm.short.$touched)"
+            class="span-warning">
+               * required !
+      </span>
       <div ng-if="ctrl.wrong"
            style="color : red ;
            phont-size : 24px ;"
